@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Max's Bonuses for Reel Remix</title>
+<style>
+  :root{
+    --ink:#FFFFFF;
+    --panel:#F2F2F0;
+    --line:#DEDEDA;
+    --paper:#14161B;
+    --signal:#0E7C5A;
+    --signal-dim:#0A5A41;
+    --text-dim:#6B6F7A;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    line-height:1.5;
+  }
+
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:48px 24px 100px;
+  }
+
+  /* Eyebrow */
+  .eyebrow{
+    font-family:'Courier New',monospace;
+    font-size:15px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    text-align:center;
+    color:var(--text-dim);
+    margin-bottom:40px;
+  }
+
+  /* Headline */
+  .headline{
+    font-size:clamp(32px,5.5vw,58px);
+    font-weight:800;
+    line-height:1.08;
+    letter-spacing:-0.02em;
+    text-align:center;
+    color:var(--paper);
+    margin-bottom:20px;
+  }
+
+  .headline .accent{
+    color:var(--signal);
+  }
+
+  .subheadline{
+    font-size:19px;
+    line-height:1.5;
+    text-align:center;
+    color:var(--text-dim);
+    max-width:620px;
+    margin:0 auto 48px;
+  }
+
+  /* Image placeholder */
+  .image-placeholder{
+    width:100%;
+    aspect-ratio:16/9;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--text-dim);
+    font-family:'Courier New',monospace;
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom:64px;
+  }
+
+  /* What is section */
+  .section-label{
+    font-size:12px;
+    font-family:'Courier New',monospace;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--signal);
+    margin-bottom:16px;
+  }
+
+  .what-is h2{
+    font-size:clamp(24px,3.5vw,34px);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    margin-bottom:20px;
+    color:var(--paper);
+  }
+
+  .what-is p{
+    font-size:18px;
+    color:#3A3D46;
+    max-width:680px;
+    margin-bottom:16px;
+  }
+
+  .what-is{
+    margin-bottom:88px;
+    padding-bottom:64px;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* Review section */
+  .review{
+    margin-bottom:88px;
+    padding-bottom:64px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .review h2{
+    font-size:clamp(24px,3.5vw,34px);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    margin-bottom:24px;
+    color:var(--paper);
+    max-width:600px;
+  }
+
+  .review p{
+    font-size:18px;
+    color:#3A3D46;
+    max-width:680px;
+    margin-bottom:20px;
+  }
+
+  .review p:last-child{
+    margin-bottom:0;
+  }
+
+  .review .signoff{
+    font-style:italic;
+    color:var(--text-dim);
+    font-size:16px;
+  }
+
+  /* Feature grid */
+  .feature-grid-wrap{
+    margin-bottom:88px;
+    padding-bottom:64px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .feature-grid-wrap h2{
+    font-size:clamp(22px,3vw,28px);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    margin-bottom:28px;
+    color:var(--paper);
+  }
+
+  .feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+  }
+
+  .feature-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:22px;
+  }
+
+  .feature-card .feature-label{
+    font-size:15px;
+    font-weight:800;
+    color:var(--paper);
+    margin-bottom:6px;
+  }
+
+  .feature-card p{
+    font-size:14px;
+    color:var(--text-dim);
+  }
+
+  @media (max-width:700px){
+    .feature-grid{
+      grid-template-columns:1fr 1fr;
+    }
+  }
+
+  @media (max-width:480px){
+    .feature-grid{
+      grid-template-columns:1fr;
+    }
+  }
+
+  /* Delivery box */
+  .delivery-box{
+    margin-top:88px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-left:4px solid var(--signal);
+    border-radius:10px;
+    padding:32px;
+    text-align:center;
+  }
+
+  .delivery-box h3{
+    font-size:19px;
+    font-weight:800;
+    color:var(--paper);
+    margin-bottom:14px;
+  }
+
+  .delivery-box p{
+    font-size:16px;
+    color:#3A3D46;
+    margin-bottom:12px;
+  }
+
+  .delivery-box p:last-child{
+    margin-bottom:0;
+  }
+
+  .delivery-box .ref-code{
+    font-family:'Courier New',monospace;
+    background:var(--ink);
+    border:1px solid var(--line);
+    padding:2px 6px;
+    border-radius:4px;
+    color:var(--signal-dim);
+  }
+
+  .delivery-box img{
+    max-width:100%;
+    border-radius:8px;
+    margin-top:20px;
+  }
+
+  /* Bonus headline */
+  .bonus-headline{
+    text-align:center;
+    font-size:clamp(28px,4.5vw,44px);
+    font-weight:800;
+    line-height:1.15;
+    letter-spacing:-0.02em;
+    color:var(--paper);
+    max-width:760px;
+    margin:0 auto 8px;
+  }
+
+  .bonus-headline .accent{
+    color:var(--signal);
+  }
+
+  .bonus-sub{
+    text-align:center;
+    color:var(--text-dim);
+    font-size:18px;
+    margin-top:16px;
+  }
+
+  /* Bonus boxes */
+  .bonus-list{
+    margin-top:56px;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+
+  .bonus-box{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:32px;
+  }
+
+  .bonus-box .bonus-tag{
+    display:inline-block;
+    font-family:'Courier New',monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--signal);
+    border:1px solid var(--signal);
+    border-radius:4px;
+    padding:4px 8px;
+    margin-bottom:16px;
+  }
+
+  .bonus-box h3{
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    color:var(--paper);
+    margin-bottom:12px;
+  }
+
+  .bonus-box p{
+    font-size:18px;
+    color:#3A3D46;
+  }
+
+  .bonus-box p + p{
+    margin-top:16px;
+  }
+
+  .bonus-box.text-only .bonus-value{
+    margin-top:16px;
+    font-size:13px;
+    color:var(--text-dim);
+  }
+
+  .bonus-box .bonus-screenshot{
+    display:block;
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius:8px;
+    border:1px solid var(--line);
+    margin-bottom:20px;
+  }
+
+  .bonus-box.image-side{
+    display:flex;
+    align-items:flex-start;
+    gap:32px;
+  }
+
+  .bonus-box.image-side .bonus-image{
+    flex:0 0 260px;
+  }
+
+  .bonus-box.image-side .bonus-image img{
+    display:block;
+    width:100%;
+    border-radius:8px;
+    border:1px solid var(--line);
+  }
+
+  .bonus-box.image-side .bonus-content{
+    flex:1;
+  }
+
+  .bonus-content ul{
+    margin:12px 0 0 20px;
+    color:#3A3D46;
+    font-size:17px;
+  }
+
+  .bonus-content li{
+    margin-bottom:88px;
+  }
+
+  /* Bundle headline */
+  .bundle-headline{
+    text-align:center;
+    font-size:clamp(26px,4vw,40px);
+    font-weight:800;
+    line-height:1.15;
+    letter-spacing:-0.02em;
+    color:var(--paper);
+    max-width:700px;
+    margin:88px auto 24px;
+  }
+
+  .bundle-copy{
+    text-align:left;
+    font-size:18px;
+    color:#3A3D46;
+    max-width:640px;
+    margin:0 auto 40px;
+  }
+
+  .bundle-copy ul{
+    margin:16px 0 16px 24px;
+    list-style-type:disc;
+  }
+
+  .bundle-copy li{
+    margin-bottom:6px;
+  }
+
+  /* CTA button */
+  .cta-wrap{
+    display:flex;
+    justify-content:center;
+    margin:32px 0 40px;
+  }
+
+  .cta-button{
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    background:var(--signal);
+    color:#FFFFFF;
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    text-decoration:none;
+    padding:28px 56px;
+    border-radius:10px;
+    text-align:center;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+
+  .cta-button svg{
+    flex:0 0 auto;
+    width:22px;
+    height:22px;
+  }
+
+  .cta-button:hover{
+    background:var(--signal-dim);
+    transform:translateY(-1px);
+  }
+
+  @media (max-width:600px){
+    .bonus-box.image-side{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .bonus-box.image-side .bonus-image{
+      width:100%;
+      flex-basis:auto;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <div class="eyebrow">Max's Bonuses for Reel Remix</div>
+
+    <h1 class="headline">
+      Film For 5 Seconds. Generate Videos <span class="accent">On Demand.</span>
+    </h1>
+
+    <p class="subheadline">
+      Turn a single 5-second video clip into infinite short-form videos with your real face and custom cloned voice—without ever stepping back in front of the camera.
+    </p>
+
+    <!-- Header Image directly from root directory -->
+    <img src="reelremix-header.jpg" alt="Reel Remix live preview showing multiple finished video variations from one source clip" style="width:100%; border-radius:8px; margin-bottom:64px; display:block;">
+
+    <div class="cta-wrap">
+      <a href="https://jvz7.com/c/289/449265/" class="cta-button">
+        Grab The Offer + Bonuses
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="what-is">
+      <h2>What is Reel Remix?</h2>
+      <p>
+        Reel Remix is a groundbreaking AI video creation platform designed to completely eliminate daily filming while keeping your content completely authentic.
+      </p>
+      <p>
+        Instead of using robotic, synthetic AI avatars, Reel Remix starts with a short 5-second video recording (or photo) of you or a client, clones the voice, and generates brand new talking-head videos on demand from any written script.
+      </p>
+      <p>
+        From automatic pause removal and dynamic restyling to instant repurposing for short-form video channels, Reel Remix lets you scale a full content engine without ever being trapped on the recording hamster wheel again.
+      </p>
+    </div>
+
+    <div class="feature-grid-wrap">
+      <h2>What You're Actually Getting</h2>
+      <div class="feature-grid">
+
+        <div class="feature-card">
+          <div class="feature-label">5-Second Video Extension</div>
+          <p>Record once for 5 seconds and generate minutes of talking-head content simply by typing a script.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-label">Real Voice Cloning</div>
+          <p>Clones your exact voice directly from your source clip for flawless, natural lip-synced audio.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-label">No-Record Photo Mode</div>
+          <p>Don't have video footage? Start with a single photo to generate complete talking-head videos instantly.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-label">33+ Built-In Visual Restyles</div>
+          <p>Transform plain videos into cinematic, 3D, or animated styles with one click while keeping your real face.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-label">Custom Style Builder</div>
+          <p>Design, save, and reuse custom visual style templates to establish consistent channel or client branding.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-label">Smart Dead-Air Removal</div>
+          <p>Automatically tightens long pauses and awkward cuts so your video stays punchy and engaging.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-label">Podcast & Webinar Repurposer</div>
+          <p>Turn long-form recordings into ready-to-post, platform-formatted short videos and viral Reels.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-label">Multi-Platform Formatting</div>
+          <p>Resize, auto-caption, and export videos tailored specifically for YouTube Shorts, TikTok, and Reels.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-label">Commercial & Client Rights</div>
+          <p>Create content packages for paying clients, offer video production services, and keep 100% of profits.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="review">
+      <h2>Why This Is Worth Your Time</h2>
+      <p>
+        Building a strong brand on short-form video platforms requires non-stop consistency, but filming every single day leads directly to burnout.
+      </p>
+      <p>
+        Reel Remix solves the video production bottleneck without making you resort to stiff, fake-looking AI stock avatars that disconnect you from your audience.
+      </p>
+      <p>
+        What sold me on it: you keep your actual face and your authentic voice, but you only have to hit record once. Type out your script, and Reel Remix handles the rest.
+      </p>
+      <p>
+        Whether you want to build your own personal brand, rapidly test new hooks for marketing offers, or run a content creation agency for local clients, Reel Remix multiplies your output without multiplying your work hours.
+      </p>
+      <p>
+        You can effortlessly publish daily content across all platforms, maintain a professional visual style, and turn simple clip inputs into entire video libraries on autopilot.
+      </p>
+      <p>
+        High-quality video creation and editing are high-ticket deliverables businesses pay thousands a month for—and now you can deliver them in minutes.
+      </p>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="https://jvz7.com/c/289/449265/" class="cta-button">
+        Grab The Offer + Bonuses
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <h2 class="bonus-headline">
+      Buy Reel Remix From My Link And Get <span class="accent">These Bonuses...</span>
+    </h2>
+    <div class="bonus-sub">All of these bonuses are brand new and custom created specifically for this offer. You cannot get them from anyone else. And every bonus comes with full PLR rights, so you're free to rebrand them or sell them.</div>
+
+    <div class="bonus-list">
+
+      <div class="bonus-box image-side">
+        <div class="bonus-image" style="flex-basis:220px;">
+          <img src="The Viral Instagram Reel Prompt Vault.jpg" alt="The Viral Instagram Reel Prompt Vault preview">
+        </div>
+        <div class="bonus-content">
+          <span class="bonus-tag">Bonus #1</span>
+          <h3>The Viral Instagram Reel Prompt Vault</h3>
+          <p>
+            Never run out of high-converting Reel ideas again. The Viral Instagram Reel Prompt Vault is a comprehensive repository of pre-engineered AI script prompts, visual hooks, and engagement CTAs designed to maximize watch time and trigger automated DM responses across top profitable niches.
+          </p>
+          <p><strong>What’s Inside:</strong></p>
+          <ul>
+            <li><strong>Master Reel Script Generator Prompt:</strong> Generate tailored 15–30 second scripts for any audience or niche in seconds.</li>
+            <li><strong>Ready-to-Use Niche Vaults:</strong> Plug-and-play visual concepts and scroll-stopping text hooks for Marketing, Wealth, and Fitness.</li>
+            <li><strong>Caption & Hashtag Suite Generator:</strong> AI prompt templates for algorithm-optimized captions and keyword targeted hashtags.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bonus-box text-only">
+        <div style="text-align:center;">
+          <span class="bonus-tag" style="font-size:14px;">Bonus #2</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;">AI Persona / Talking-Head Video Script Generator</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <img class="bonus-screenshot" src="AI_Persona_and_Talking-Head_Video_Script_Generator.jpg" alt="AI Persona Talking-Head Video Script Generator tool interface">
+        <p>
+          Never stare at a blank screen before filming again. This tool generates a
+          ready-to-use AI prompt that writes complete, scroll-stopping scripts for
+          talking-head videos and Reels: hook, body, and CTA, fully mapped out and
+          ready to record or feed straight into an AI persona.
+        </p>
+        <p>
+          Just fill in a few quick dropdowns (persona and topic, audience, hook style,
+          content pillar, and delivery format) and the tool builds a precision-engineered
+          prompt for ChatGPT, Claude, or Gemini. Paste it in, and you'll get a full
+          script broken into a scroll-stopping hook, a tight value-packed body, and a
+          clear CTA, plus on-screen text cues and multiple hook variations to test,
+          built on proven short-form video frameworks.
+        </p>
+        <p>
+          No scriptwriting experience needed. No more guessing what to say in the first
+          3 seconds. Just fill in the blanks and let the AI write the script, perfect
+          for creators using AI personas, faceless brands, or their own face on camera.
+        </p>
+      </div>
+
+      <div class="bonus-box text-only">
+        <div style="text-align:center;">
+          <span class="bonus-tag" style="font-size:14px;">Bonus #3</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;">30-Day Content Calendar Prompt Generator</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <img class="bonus-screenshot" src="30-Day_Content_Calendar_Prompt_Generator.jpg" alt="30-Day Content Calendar Prompt Generator tool interface">
+        <p>
+          Never wonder what to post again. This tool generates a ready-to-use AI prompt
+          that plans an entire month of content in one shot: a full 30-day calendar
+          with a content pillar, format, hook idea, and one-line brief for every single
+          post, mapped to your niche and posting schedule.
+        </p>
+        <p>
+          Just fill in a few quick dropdowns (niche and goal, content pillars, posting
+          frequency, and preferred content mix) and the tool builds a precision-engineered
+          prompt for ChatGPT, Claude, or Gemini. Paste it in, and you'll get a complete,
+          organized calendar you can hand straight to your automation tool or use as a
+          roadmap for exactly what to create each day, no more staring at a blank page
+          trying to figure out what to post.
+        </p>
+        <p>
+          No content-planning experience needed. No more guesswork or burnout from
+          figuring it out day-by-day. Just fill in the blanks and let the AI map out
+          your entire month, perfect for creators, small businesses, agencies, and
+          theme pages who want to plan once and execute on autopilot.
+        </p>
+      </div>
+
+    </div>
+
+    <h2 class="bundle-headline">Get Instant Access To All Of These Bonuses</h2>
+
+    <p class="bundle-copy" style="text-align:center;">
+      Each of these bonuses are full products that are complete and ready for instant delivery. If you grab Reel Remix from my link, you will get immediate access to all 3 products along with full PLR licenses.
+    </p>
+
+    <div class="cta-wrap">
+      <a href="https://jvz7.com/c/289/449265/" class="cta-button">
+        Grab The Offer + Bonuses
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="delivery-box">
+      <h3>Bonuses Delivery</h3>
+      <p>
+        The bonuses will be auto-delivered inside the JVZoo delivery page. To qualify for
+        the bonuses, make sure you see this text at the bottom of the checkout page:
+      </p>
+      <p><span class="ref-code">"You have been referred by Max R (#289)"</span></p>
+      <img src="referred_by.png" alt="Terms of sale showing referred by Max R (#289)">
+    </div>
+
+  </div>
+
+</body>
+</html>
