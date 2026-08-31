@@ -65,24 +65,6 @@
     margin:0 auto 48px;
   }
 
-  /* Image placeholder */
-  .image-placeholder{
-    width:100%;
-    aspect-ratio:16/9;
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:8px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--text-dim);
-    font-family:'Courier New',monospace;
-    font-size:13px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    margin-bottom:64px;
-  }
-
   /* What is section */
   .section-label{
     font-size:12px;
@@ -351,10 +333,15 @@
     margin:12px 0 0 20px;
     color:#3A3D46;
     font-size:17px;
+    list-style-type:disc;
   }
 
   .bonus-content li{
-    margin-bottom:88px;
+    margin-bottom:8px;
+  }
+
+  .bonus-content li:last-child{
+    margin-bottom:0;
   }
 
   /* Bundle headline */
@@ -447,8 +434,8 @@
       Turn a single 5-second video clip into infinite short-form videos with your real face and custom cloned voice—without ever stepping back in front of the camera.
     </p>
 
-    <!-- Header Image directly from root directory -->
-    <img src="reelremix-header.jpg" alt="Reel Remix live preview showing multiple finished video variations from one source clip" style="width:100%; border-radius:8px; margin-bottom:64px; display:block;">
+    <!-- Header Image -->
+    <img src="reelremix-header.jpg" alt="Reel Remix live preview showing multiple finished video variations from one source clip" style="width:100%; border-radius:8px; margin-bottom:48px; display:block;">
 
     <div class="cta-wrap">
       <a href="https://jvz7.com/c/289/449265/" class="cta-button">
@@ -572,7 +559,7 @@
           <p>
             Never run out of high-converting Reel ideas again. The Viral Instagram Reel Prompt Vault is a comprehensive repository of pre-engineered AI script prompts, visual hooks, and engagement CTAs designed to maximize watch time and trigger automated DM responses across top profitable niches.
           </p>
-          <p><strong>What’s Inside:</strong></p>
+          <p style="margin-top:16px;"><strong>What’s Inside:</strong></p>
           <ul>
             <li><strong>Master Reel Script Generator Prompt:</strong> Generate tailored 15–30 second scripts for any audience or niche in seconds.</li>
             <li><strong>Ready-to-Use Niche Vaults:</strong> Plug-and-play visual concepts and scroll-stopping text hooks for Marketing, Wealth, and Fitness.</li>
