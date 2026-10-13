@@ -343,7 +343,8 @@
 
   .bonus-box .bonus-screenshot{
     display:block;
-    width:50%;
+    width:100%;
+    max-width:30%;
     margin-left:auto;
     margin-right:auto;
     border-radius:8px;
@@ -434,6 +435,10 @@
     .bonus-box.image-side .bonus-image{
       width:100%;
       flex-basis:auto;
+    }
+    /* Expand image slightly on mobile screens so it remains easily viewable */
+    .bonus-box .bonus-screenshot{
+      max-width:60%;
     }
   }
 
@@ -558,22 +563,12 @@
     <div class="bonus-list">
 
       <div class="bonus-box">
-        <span class="bonus-tag">Bonus #1</span>
-        <h3>Software Box Prompt Generator (with PLR)</h3>
-          <p>
-            A software box makes a digital product look real, valuable, and easy to understand at a glance. The problem is that most people don't have the design skills or the budget to get one made.
-          </p>
-          <p>
-            This tool fixes that. Describe your product in plain English, then pick the look and feel from simple dropdowns: art style, mood, colors, fonts, and proportions. You can also tick the platform badges you want to show on the box.
-          </p>
-          <p>
-            The tool turns your choices into a structured prompt you paste into any AI chat tool, so you get a box design concept without writing a single prompt yourself.
-          </p>
-      </div>
-
-      <div class="bonus-box">
-        <span class="bonus-tag">Bonus #2</span>
-        <h3>Fiction Book Cover Prompt Generator (with PLR)</h3>
+        <div style="text-align:center;">
+          <span class="bonus-tag">Bonus #1</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;">Fiction Book Cover Prompt Generator (with PLR)</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <img class="bonus-screenshot" src="fiction-book-cover-prompt-generator.jpg" alt="Fiction Book Cover Prompt Generator Interface">
           <p>
             This is a brand new, improved version of my Book Cover Prompt Generator. The original lets you type your book details and get a prompt. This version gives you far more control over the result. Here are some of the best improvements:
           </p>
@@ -590,8 +585,12 @@
       </div>
 
       <div class="bonus-box">
-        <span class="bonus-tag">Bonus #3</span>
-        <h3>Non-Fiction Book Cover Prompt Generator (with PLR)</h3>
+        <div style="text-align:center;">
+          <span class="bonus-tag">Bonus #2</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;">Non-Fiction Book Cover Prompt Generator (with PLR)</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <img class="bonus-screenshot" src="non-fiction-book-cover-prompt-generator.jpg" alt="Non-Fiction Book Cover Prompt Generator Interface">
           <p>
             Non-fiction covers have a different job than fiction covers. They need to look credible, communicate a clear promise, and stay readable as a tiny thumbnail.
           </p>
@@ -600,6 +599,24 @@
           </p>
           <p>
             Prefer to add the lettering yourself? Tick "Artwork only" and get the art without any text. The tool also tells the AI not to make up credentials, statistics, or promised results.
+          </p>
+      </div>
+
+      <div class="bonus-box">
+        <div style="text-align:center;">
+          <span class="bonus-tag">Bonus #3</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;">Software Box Prompt Generator (with PLR)</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <img class="bonus-screenshot" src="software-box-prompt-generator.jpg" alt="Software Box Prompt Generator Interface">
+          <p>
+            A software box makes a digital product look real, valuable, and easy to understand at a glance. The problem is that most people don't have the design skills or the budget to get one made.
+          </p>
+          <p>
+            This tool fixes that. Describe your product in plain English, then pick the look and feel from simple dropdowns: art style, mood, colors, fonts, and proportions. You can also tick the platform badges you want to show on the box.
+          </p>
+          <p>
+            The tool turns your choices into a structured prompt you paste into any AI chat tool, so you get a box design concept without writing a single prompt yourself.
           </p>
       </div>
 
